@@ -1,0 +1,15 @@
+services:
+  cloudflare:
+    container_name: cloudflared-tunnel
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    env_file: .env # use .env
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    networks:
+      - proxy
+      # docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token eyJhIjoiNWRlZDMzNGQ2MDU0MWNkMzg4NTk0MjVhMjcyNWFhNWQiLCJ0IjoiOTY3MmIzNWMtZWViYy00NWZlLTk1MDEtMzFkOGVkYjZjZDAxIiwicyI6Ik5HSTVPVEEyTVRRdFpHTXpZaTAwT0RCbUxUazFNbUl0TVdaak9XUTBPVGRrWlRKayJ9
+networks:
+  proxy:
+    external: true
