@@ -1,0 +1,11 @@
+metrics: true
+debug: false
+ui:
+  header: My Homelab
+  footer: My Homelab Footer
+  link: https://homepage.dev.iot-proxmox.net
+  buttons:
+    - name: "Portainer"
+      link: "https://portainer.dev.iot-proxmox.net"
+    - name: "Traefik"
+      link: "https://traefik-dashboard.dev.iot-proxmox.net"

@@ -1,0 +1,140 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+# icons found here https://github.com/walkxcode/dashboard-icons
+
+- Hypervisor:
+    - PVE:
+        icon: proxmox.svg
+        href: "{{HOMEPAGE_VAR_PROXMOX_URL}}"
+        widget:
+            type: proxmox
+            url: "{{HOMEPAGE_VAR_PROXMOX_URL}}"
+            username:  "api@pam!homepage_api"
+            password:  "c987f1b0-7004-4949-ab5e-91d31de97772"
+            node: jonsbo
+    - PBS:
+        icon: proxmox.svg
+        href: "{{HOMEPAGE_VAR_PROXMOX_BS_URL}}"
+- Containers:
+    - Portainer-Docker:
+        icon: portainer.svg
+        href: "{{HOMEPAGE_VAR_Portainer_URL}}"
+        description: Portainer
+        widget:
+            type: portainer
+            url: {{HOMEPAGE_VAR_Portainer_URL}}
+            env: 3
+            key: {{HOMEPAGE_VAR_Portainer_Key}}
+    
+- DNS:
+    - PiHole:
+        icon: pi-hole.svg
+        href: "{{HOMEPAGE_VAR_PIHOLE_URL_1_ui}}"
+        description: pihole-1
+        widget:
+            type: pihole
+            url: "{{HOMEPAGE_VAR_PIHOLE_URL_1}}"
+            key: "{{HOMEPAGE_VAR_PIHOLE_API_KEY_1}}"
+- Network:
+    - Gatus:
+        icon: gatus.svg
+        href: "{{HOMEPAGE_VAR_Gatus_URL}}"
+        description: docker
+        widget:
+          type: gatus
+          url: "{{HOMEPAGE_VAR_Gatus_URL}}"
+    - Gateway:
+        icon: unifi.svg
+        href: "{{HOMEPAGE_VAR_UNIFI_URL}}"
+        description: Gateway
+        widget:
+            type: unifi
+            url: https://192.168.1.1
+            username: homepage
+            password: PembaNarroBones2025!
+            
+        
+    - Traefik:
+        icon: traefik.svg
+        href: "{{HOMEPAGE_VAR_Traefik_URL}}"
+        description: Docker
+        widget:
+            type: traefik
+            url: "{{HOMEPAGE_VAR_Traefik_URL}}"
+            username: {{HOMEPAGE_VAR_Traefik_Username}}
+            password: {{HOMEPAGE_VAR_Traefik_Password}}
+
+- Authentication:
+    - Authentik:
+        icon: authentik.png
+        href: "{{HOMEPAGE_VAR_Authentik_URL}}"
+        description: Authentik
+        widget:
+            type: authentik
+            url: {{HOMEPAGE_VAR_Authentik_URL}}
+            key: {{HOMEPAGE_VAR_Authentik_Key}}
+    
+   
+- Storage:
+    - TrueNAS:
+        icon: truenas.svg
+        href: "{{HOMEPAGE_VAR_TRUENAS_URL}}"
+        description: scale
+        widget:
+            type: truenas
+            url: {{HOMEPAGE_VAR_TRUENAS_URL}}
+            key: {{HOMEPAGE_VAR_TRUENAS_KEY}}
+- Media:
+    - Jellyfin:
+        icon: jellyfin.svg
+        href: "{{HOMEPAGE_VAR_Jellyfin_URL}}"
+        description: Videos
+        widget:
+            type: jellyfin
+            url: "{{HOMEPAGE_VAR_Jellyfin_URL}}"
+            key: {{HOMEPAGE_VAR_Jellyfin_Key}}
+            enableBlocks: true # optional, defaults to false
+            enableNowPlaying: true # optional, defaults to true
+            enableUser: true # optional, defaults to false
+            showEpisodeNumber: true # optional, defaults to false
+            expandOneStreamToTwoRows: false # optional, defaults to true
+    - QBittorrent:
+        icon: qbittorrent.svg
+        href: "{{HOMEPAGE_VAR_QBIT_URL}}"
+        description: torrent
+        widget:
+            type: qbittorrent
+            url: "{{HOMEPAGE_VAR_QBIT_URL}}"
+            username: admin
+            password: PembaBones2020!
+            enableLeechProgress: false # optional, defaults to false
+    - Radarr:
+        icon: radarr.svg
+        href: "{{HOMEPAGE_VAR_Jellyfin_URL}}"
+        description: Videos
+    - Sonarr:
+        icon: sonarr.svg
+        href: "{{HOMEPAGE_VAR_Jellyfin_URL}}"
+        description: Videos
+        
+#- Remote Access:
+ #   - PiKVM:
+  #      icon: https://avatars.githubusercontent.com/u/41749659?s=200&v=4
+   #     href: "{{HOMEPAGE_VAR_PIKVM_URL}}"
+    #    description: remote kvm
+- Home Automation:
+    - Home Assistant:
+        icon: home-assistant.svg
+        href: "{{HOMEPAGE_VAR_HOME_ASSISTANT_URL}}"
+        description: home
+        #widget:
+         #   type: homeassistant
+          #  url: https://iot-proxmox.net
+           # key: "{{HOMEPAGE_VAR_HOME_ASSISTANT_API_KEY}}"
+- Other:
+    - GitHub:
+        icon: github.svg
+        href: https://github.com/bradfordjns?tab=repositories
+        description: source code
+

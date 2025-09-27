@@ -1,0 +1,2 @@
+CREATE DATABASE gatus;
+CREATE DATABASE immich;

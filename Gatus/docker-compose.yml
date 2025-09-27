@@ -1,0 +1,35 @@
+---
+services:
+  gatus:
+    image: twinproduction/gatus:v5.24.3
+    restart: unless-stopped
+    env_file: .env # use .env
+    ports:
+      - 8084:8080
+      
+    container_name: gatus
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=gatus
+
+      - GATUS_CONFIG_PATH=/config
+    
+    volumes:
+      - ./config:/config
+    networks:
+      - postgres_web
+      - proxy
+    #labels:
+    #  - "traefik.enable=true"
+     # - "traefik.http.routers.gatus.rule=Host(`gatus.dev.iot-proxmox.net`)"
+      #- "traefik.http.routers.gatus.entrypoints=http,https"
+      #- "traefik.http.routers.gatus.tls=true"
+      #- "traefik.http.routers.gatus.tls.certresolver=cloudflare"
+      #- "traefik.http.services.gatus.loadbalancer.server.port=8084"
+
+networks:
+  proxy:
+    external: true
+  postgres_web:
+    external: true

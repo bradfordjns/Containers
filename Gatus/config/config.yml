@@ -1,0 +1,72 @@
+storage:
+  type: postgres
+  path: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable"
+
+endpoints:
+  - name: Traefik Dev
+    group: proxy
+    url: "https://traefik-dashboard.dev.iot-proxmox.net"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 401"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+  
+  - name: Authentik
+    group: proxy
+    url: "${HOMEPAGE_VAR_AUTHENTIK_URL}"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: 3
+    group: proxy
+    url: "https://traefik-dashboard.media.iot-proxmox.net"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 401"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: Jellyfin
+    group: proxy
+    url: "${HOMEPAGE_VAR_JELLYFIN_URL}"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+  - name: 7
+    group: proxy
+    url: "https://portainer.dev.iot-proxmox.net"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+  - name: 8
+    group: proxy
+    url: "https://homepage.dev.iot-proxmox.net"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: 9
+    group: proxy
+    url: "https://gatus.dev.iot-proxmox.net"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: Dev
+    group: Ping
+    url: "icmp://192.168.1.115"
+    interval: 1m
+    conditions:
+      - "[CONNECTED] == true"
+
+  - name: Media
+    group: Ping
+    url: "icmp://192.168.1.159"
+    interval: 1m
+    conditions:
+      - "[CONNECTED] == true"

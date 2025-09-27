@@ -1,0 +1,25 @@
+
+services:
+  drawio:
+    image: jgraph/drawio:28.2.3
+    container_name: drawio
+    restart: unless-stopped
+    env_file: .env # use .env
+    ports:
+      - 8085:8080
+    environment:
+      #PUBLIC_DNS: drawio.${SERVER}.iot-proxmox.net
+      ORGANISATION_UNIT: unit
+      ORGANISATION: org
+      CITY: city
+      STATE: state
+      COUNTRY_CODE: country
+    networks:
+      - proxy
+    
+
+networks:
+  proxy:
+    external: true
+
+    
