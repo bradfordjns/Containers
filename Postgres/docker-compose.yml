@@ -5,8 +5,8 @@ services:
     restart: unless-stopped
     volumes:
       - ./data:/var/lib/postgresql/data
-      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
-      - ./backups:/mnt/backups
+      #- ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
+      #- ./backups:/mnt/backups
     ports:
       - "5432:5432"
       
