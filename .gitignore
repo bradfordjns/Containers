@@ -1,3 +1,4 @@
 acme.json
 _site
 .env
+./Traefik/data/logs/*
