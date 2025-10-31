@@ -1,7 +1,7 @@
 
 services:
   drawio:
-    image: jgraph/drawio:28.2.5
+    image: jgraph/drawio:28.2.8
     container_name: drawio
     restart: unless-stopped
     env_file: .env # use .env
